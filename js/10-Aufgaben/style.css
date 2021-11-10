@@ -1,0 +1,42 @@
+.calendar{
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+}
+div{
+    font-weight: bold;
+}
+.border{
+    display: flex;
+    width: 20px;
+    justify-content: center;
+}
+.text{
+    width: 68px;
+    text-align: center;
+}
+.header{
+    font-size: 20px;
+}
+.otherdays{
+    color: grey;
+}
+button{
+    width: 48%;
+    margin: 1%;
+    font-weight: bolder;
+    background-color: white;
+    border: black 2px solid;
+    border-radius: 10px;
+}
+.days{
+    transition: 1000ms;
+    -o-transition: 1000ms;
+}
+.days :hover, .otherdays :hover, button:hover{
+    background-color: lightgray;
+    border-radius: 10px;
+    transition: 1000ms;
+    -o-transition: 1000ms;
+}
+

@@ -1,0 +1,38 @@
+body{
+    text-align: center;
+}
+
+ul{
+    padding-inline-start: 0px;
+    list-style: none;
+    width: 40%;
+    margin: auto;
+}
+.task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+}
+.edit:hover, .delete:hover{
+    background-color: lightgray;
+    border-radius: 4px;
+}
+.delete{
+    background-image: url("delete.png");
+}
+.edit{
+    background-image: url("edit.png");
+}
+.edit, .delete{
+    transition: 500ms;
+    height: 2em;
+    width: 2em;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+}
+
+

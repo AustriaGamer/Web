@@ -1,0 +1,12 @@
+.input{
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper{
+    width: 60vw;
+    text-align: center;
+    margin: auto;
+}
+.row{
+    padding-top: 2%;
+}

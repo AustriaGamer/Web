@@ -1,0 +1,32 @@
+ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.wrapper{
+    text-align: center;
+}
+.row{
+    height: 15vw;
+    position: relative;
+}
+.wordcase{
+    padding: 2vw 0px;
+    word-wrap:break-word;
+    position: absolute;
+    width: 19vw;
+    height: 14vw;
+    left: 0vw;
+    top: 0vw;
+    font-size: 16px;
+    font-weight: bolder;
+}
+button{
+    position: relative;
+    top: 0px;
+    width: 20vw;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 1vw;
+    border-width: 0.5vw;
+    
+}
