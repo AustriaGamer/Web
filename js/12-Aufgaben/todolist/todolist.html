@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="todolist.js" defer></script>
-    <link rel="stylesheet" href="todolist.css">
+    <link rel="stylesheet" href="todolist.css" />
     <title>Document</title>
-</head>
-<body>
-    <div class="wrapper">
-        <h1>TODO List</h1>
-        <ul id="todo">
-            
-        </ul>
-        <input id="taskToAdd" type="text" placeholder="Task">
-        <button id="addTask">Add</button>
+  </head>
+  <body>
+    <div id="openTaskModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modalHeader">
+          <div class="taskNameDiv">
+            <h4 class="taskName">Task Name:</h4>
+            <div class="taskNameContainer"></div>
+          </div>
+          <div class="taskResponcibleDiv">
+            <h4 class="taskResponcible">Responcible:</h4>
+            <div class="taskResponcibleContainer"></div>
+          </div>
+        </div>
+        <div class="taskDescription"></div>
+      </div>
     </div>
-</body>
+
+    <div id="editTaskModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modalHeader">
+            <div class="taskNameDiv">
+              <h4 class="taskName">Task Name:</h4>
+              <input class="enterTaskNameContainer"></input>
+            </div>
+            <div class="taskResponcibleDiv">
+              <h4 class="taskResponcible">Responcible:</h4>
+              <input class="enterTaskResponcibleContainer"></input>
+            </div>
+          </div>
+          <textarea class="enterTaskDescription"></textarea>
+        </div>
+      </div>
+
+    <div class="wrapper">
+      <h1>TODO List</h1>
+      <ul id="todo"></ul>
+      <input id="taskToAdd" type="text" placeholder="Task" />
+      <button id="addTask">Add</button>
+    </div>
+  </body>
 </html>
