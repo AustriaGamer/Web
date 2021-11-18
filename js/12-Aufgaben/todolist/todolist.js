@@ -127,7 +127,6 @@ function showModal(editing, taskNumber) {
   todoList.modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
 function closeModal() {
   todoList.modal.style.display = "none";
 }
