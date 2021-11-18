@@ -1,5 +1,7 @@
 body{
     text-align: center;
+    word-wrap: break-word;
+    min-width: 400px;
 }
 
 ul{
@@ -36,8 +38,38 @@ ul{
 }
 .modalHeader{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    position: relative;
 }
+
+.modalFooter{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.taskDescription{
+    text-align: left;
+    margin: 4%;
+}
+.taskDescriptionContainer{
+    margin-top: 1%;
+    width: 100%;
+    text-align: justify;
+}
+
+.modalButton{
+    background-color: lightgrey;
+    border-radius: 25px;
+    width: 15%;
+}
+.modalInput{
+    background-color: lightpink;
+}
+.modalTextArea{
+    width: 100%;
+    height: 100%;
+    resize:none;
+    }
 
 
 
@@ -51,7 +83,7 @@ ul{
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: auto; 
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
@@ -59,11 +91,12 @@ ul{
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
-    height: 60%;
+    max-width: 800px;
+    height: auto;
   }
   
   /* The Close Button */
