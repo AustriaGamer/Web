@@ -6,7 +6,6 @@ let calendar = "<div class='calendar'>";
 //document.getElementById("next").onclick(changeDate(1));
 //document.getElementById("last").onclick(changeDate(-1));
 function changeDate(dir) {
-  document.clear;
   if (month + dir > 11) {
     month = 0;
     year += 1;
