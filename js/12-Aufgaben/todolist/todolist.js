@@ -19,17 +19,17 @@ function writeTodoList() {
       "</li><button class='delete' ></button></div>";
   }
   todoList.innerHTML = html;
-  addButtonFunction("edit");
-  addButtonFunction("delete");
+  addButtonFunctionWithClassName("edit");
+  addButtonFunctionWithClassName("delete");
 }
 
-function addButtonFunction(button) {
-  let but = document.getElementsByClassName(button);
+function addButtonFunctionWithClassName(buttonClassName) {
+  let but = document.getElementsByClassName(buttonClassName);
   for (let i = 0; i < but.length; i++) {
     but[i].onclick = function (event) {
-      switch (button) {
+      switch (buttonClassName) {
         case "edit":
-          edit(i);
+          editTask(i);
           break;
         case "delete":
           deleteTask(i);
@@ -39,15 +39,15 @@ function addButtonFunction(button) {
 }
 
 function addToTodoList() {
-  let value = document.getElementById("taskToAdd").value;
-  if (value != "" && value != " ") {
-    todoListTasks.push(value);
+  let task = document.getElementById("taskToAdd").value;
+  if (task != "" && task != " ") {
+    todoListTasks.push(task);
     writeTodoList();
   }
   document.getElementById("taskToAdd").value = "";
 }
 
-function edit(i) {
+function editTask(i) {
   todoListTasks[i] = prompt("Please enter new Title");
   writeTodoList();
 }
