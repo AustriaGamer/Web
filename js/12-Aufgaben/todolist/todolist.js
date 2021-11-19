@@ -2,10 +2,10 @@ let todoList = {
   modal: document.getElementById("openTaskModal"),
   body: document.getElementById("todo"),
   taskNameContainer: document.getElementsByClassName("taskNameContainer")[0],
-  taskResponcibleContainer = document.getElementsByClassName(
+  taskResponcibleContainer: document.getElementsByClassName(
     "taskResponcibleContainer"
   )[0],
-  taskDescriptionContainer = document.getElementsByClassName(
+  taskDescriptionContainer: document.getElementsByClassName(
     "taskDescriptionContainer"
   )[0],
   tasks: [
@@ -103,13 +103,6 @@ function deleteTask(i) {
 // When the user clicks on the button, open the modal
 function showModal(editing, taskNumber) {
   let modalFooter = document.getElementsByClassName("modalFooter")[0];
-  let taskName = document.getElementsByClassName("taskNameContainer")[0];
-  let taskResponcible = document.getElementsByClassName(
-    "taskResponcibleContainer"
-  )[0];
-  let taskDescription = document.getElementsByClassName(
-    "taskDescriptionContainer"
-  )[0];
   let task = todoList.tasks[taskNumber];
 
   if (!editing) {
@@ -120,8 +113,10 @@ function showModal(editing, taskNumber) {
   } else {
     modalFooter.style.display = "default";
     todoList.taskNameContainer.innerHTML = "<input class='modalInput'></input>";
-    todoList.taskResponcibleContainer.innerHTML = "<input class='modalInput'></input>";
-    todoList.taskDescriptionContainer.innerHTML = "<textarea class='modalTextArea' rows='15' maxlength='800' placeholder='Enter Text Here! (max. 800 Characters)'></textarea>";
+    todoList.taskResponcibleContainer.innerHTML =
+      "<input class='modalInput'></input>";
+    todoList.taskDescriptionContainer.innerHTML =
+      "<textarea class='modalTextArea' rows='15' maxlength='800' placeholder='Enter Text Here! (max. 800 Characters)'></textarea>";
   }
 
   todoList.modal.style.display = "block";
