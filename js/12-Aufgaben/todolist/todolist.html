@@ -9,25 +9,32 @@
     <title>Document</title>
   </head>
   <body>
+    
     <div id="openTaskModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
         <div class="modalHeader">
           <div class="taskNameDiv">
             <h4 class="taskName">Task Name:</h4>
-            <div class="taskNameContainer"></div>
+            <div id="taskNameContainer">
+              <input name="taskName" id='taskNameInput' class='modalInput' required></input>
+            </div>
           </div>
           <div class="taskResponcibleDiv">
-            <h4 class="taskResponcible">Responcible:</h4>
-            <div class="taskResponcibleContainer"></div>
+            <h4 class="taskResponsible">Responcible:</h4>
+            <div id="taskResponsibleContainer">
+              <input name="taskResponsible" id='taskResponsibleInput' class='modalInput' required></input>
+            </div>
           </div>
         </div>
         <div class="taskDescription">
           <h4>Description:</h4>
-          <div class="taskDescriptionContainer"></div>
+          <div id="taskDescriptionContainer">
+            <textarea id='taskDescriptionInput' class='modalInput' rows='15' maxlength='800' placeholder='Enter Text Here! (max. 800 Characters)'></textarea>
+          </div>
         </div>
         <div class="modalFooter">
-          <button id="saveTask" class="modalButton">Save</button>
+          <input type="submit" id="saveTask" class="modalButton" formaction="">Save</input>
           <button id="cancelTask" class="modalButton">Cancel</button>
         </div>
       </div>

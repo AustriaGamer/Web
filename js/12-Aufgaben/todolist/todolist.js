@@ -1,13 +1,9 @@
 let todoList = {
   modal: document.getElementById("openTaskModal"),
   body: document.getElementById("todo"),
-  taskNameContainer: document.getElementsByClassName("taskNameContainer")[0],
-  taskResponsibleContainer: document.getElementsByClassName(
-    "taskResponcibleContainer"
-  )[0],
-  taskDescriptionContainer: document.getElementsByClassName(
-    "taskDescriptionContainer"
-  )[0],
+  taskNameContainer: document.getElementById("taskNameContainer"),
+  taskResponsibleContainer: document.getElementById("taskResponsibleContainer"),
+  taskDescriptionContainer: document.getElementById("taskDescriptionContainer"),
   tasks: [
     {
       name: "Test1",
@@ -36,20 +32,26 @@ function addButtonFunctions() {
     }
   };
   document.getElementById("cancelTask").addEventListener("click", closeModal);
-  document.getElementById("saveTask").addEventListener("click", function () {
+  document.getElementById("saveTask").addEventListener("click", validateForm);
+}
+
+function validateForm() {
+  let x = document.getElementById("taskNameInput").value;
+  let y = document.getElementById("taskResponsibleInput").value;
+  if (x == "" || y == "") {
+    return false;
+  }else{
+    console.log("dkjl");
     addTaskToTodoList();
     closeModal();
-  });
+    return true;
+  }
 }
 
 function addEnterKeyFunction(e) {
   if (e.which == 13) {
     addTaskToTodoList();
   }
-}
-
-function openTaskWindow() {
-  document.write("<div id='taskWindow'></div>");
 }
 
 function writeTodoList() {
@@ -83,46 +85,41 @@ function addButtonFunctionWithClassName(buttonClassName) {
 }
 
 function addTaskToTodoList() {
-  let taskName = document.getElementById("taskNameInput").value;
-  let taskResposible = document.getElementById("taskResponsibleInput").value;
-  let taskDescription = document.getElementById("taskDescriptionInput").value;
-  
-    todoList.tasks.push({
-      name:taskName,
-      responsible: taskResposible,
-      description: taskDescription
-    });
-    writeTodoList();
-  
+  todoList.tasks.push({
+    name: document.getElementById("taskNameInput").value,
+    responsible: document.getElementById("taskResponsibleInput").value,
+    description: document.getElementById("taskDescriptionInput").value,
+  });
+  console.log("finished")
+  writeTodoList();
+
   document.getElementById("taskToAdd").value = "";
 }
 
-function editTask(i) {
-  todoList.tasks[i] = prompt("Please enter new Title");
+function editTask(indexTask) {
+  showModal(true, indexTask);
   writeTodoList();
 }
-function deleteTask(i) {
-  todoList.tasks.splice(i, 1);
+function deleteTask(indexTask) {
+  todoList.tasks.splice(indexTask, 1);
   writeTodoList();
 }
 
 // When the user clicks on the button, open the modal
 function showModal(editing, taskNumber) {
   let modalFooter = document.getElementsByClassName("modalFooter")[0];
-  let task = todoList.tasks[taskNumber];
 
   if (!editing) {
     modalFooter.style.display = "none";
-    todoList.taskNameContainer.innerHTML = task.name;
-    todoList.taskResponsibleContainer.innerHTML = task.responsible;
-    todoList.taskDescriptionContainer.innerHTML = task.description;
+    fillTaskInputOrContainer(true, taskNumber);
+    setModalInputsVisible(false);
   } else {
     modalFooter.style.display = "default";
-    todoList.taskNameContainer.innerHTML = "<input id='taskNameInput' class='modalInput'></input>";
-    todoList.taskResponsibleContainer.innerHTML =
-      "<input id='taskResponsibleInput' class='modalInput'></input>";
-    todoList.taskDescriptionContainer.innerHTML =
-      "<textarea id='taskDescriptionInput' class='modalTextArea' rows='15' maxlength='800' placeholder='Enter Text Here! (max. 800 Characters)'></textarea>";
+    setModalInputsVisible(true);
+    
+    if (taskNumber != null) {
+      fillTaskInputOrContainer(false, taskNumber);
+    }
   }
 
   todoList.modal.style.display = "block";
@@ -130,6 +127,46 @@ function showModal(editing, taskNumber) {
 
 function closeModal() {
   todoList.modal.style.display = "none";
+  clearModalInputs();
+}
+
+function setModalInputsVisible(trueOrFalse){
+  let modalInputs = document.getElementsByClassName("modalInput")
+  for (let index = 0; index < modalInputs.length; index++) {
+    if (trueOrFalse){
+      modalInputs[index].style.display = "default"
+    }else{
+      modalInputs[index].style.display = "none"
+    }
+  }
+}
+
+function clearModalInputs(){
+  let modalInputs = document.getElementsByClassName("modalInput")
+  for (let index = 0; index < modalInputs.length; index++) {
+      modalInputs[index].value = ""
+  }
+}
+
+function fillTaskInputOrContainer(isContainer, taskNumber) {
+  switch (isContainer) {
+    case true:
+      document.getElementById("taskNameContainer").innerHTML =
+        todoList.tasks[taskNumber].name;
+      document.getElementById("taskResponsibleContainer").innerHTML =
+        todoList.tasks[taskNumber].responsible;
+      document.getElementById("taskDescriptionContainer").innerHTML =
+        todoList.tasks[taskNumber].description;
+      break;
+    default:
+      document.getElementById("taskNameInput").value =
+        todoList.tasks[taskNumber].name;
+      document.getElementById("taskResponsibleInput").value =
+        todoList.tasks[taskNumber].responsible;
+      document.getElementById("taskDescriptionInput").value =
+        todoList.tasks[taskNumber].description;
+  }
 }
 
 addButtonFunctions();
+writeTodoList();
