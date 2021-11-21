@@ -35,17 +35,37 @@ function addButtonFunctions() {
   document.getElementById("saveTask").addEventListener("click", validateForm);
 }
 
+function addButtonFunctionByClassName() {
+  let but = document.getElementsByClassName("task");
+  for (let i = 0; i < but.length; i++) {
+    let taskElements = but[i].children;
+    taskElements[0].onclick = function () {
+      editTask(i);
+    };
+    taskElements[1].onclick = function () {
+      showModal(false, i);
+    };
+    taskElements[2].onclick = function () {
+      deleteTask(i);
+    };
+  }
+}
+
 function validateForm() {
   let x = document.getElementById("taskNameInput").value;
   let y = document.getElementById("taskResponsibleInput").value;
-  if (x == "" || y == "") {
+  let z = document.getElementById("taskDescriptionInput").value;
+  if (x == "" || y == "" || x.length >22 || y.length > 22) {
     return false;
-  }else{
-    console.log("dkjl");
+  }else if(!z == "" && z.length > 800){
+    return false;
+    
+  }
+
     addTaskToTodoList();
     closeModal();
     return true;
-  }
+  
 }
 
 function addEnterKeyFunction(e) {
@@ -60,28 +80,12 @@ function writeTodoList() {
     htmlOutput +=
       "<div class='task' id='task" +
       i +
-      "'> <button class='edit' ></button><li>" +
+      "'> <button class='edit' ></button><div class='todoListTaskName actionTodoListField'>" +
       todoList.tasks[i].name +
-      "</li><button class='delete' ></button></div>";
+      "</div><button class='delete' ></button></div>";
   }
   todoList.body.innerHTML = htmlOutput;
-  addButtonFunctionWithClassName("edit");
-  addButtonFunctionWithClassName("delete");
-}
-
-function addButtonFunctionWithClassName(buttonClassName) {
-  let but = document.getElementsByClassName(buttonClassName);
-  for (let i = 0; i < but.length; i++) {
-    but[i].onclick = function (event) {
-      switch (buttonClassName) {
-        case "edit":
-          editTask(i);
-          break;
-        case "delete":
-          deleteTask(i);
-      }
-    };
-  }
+  addButtonFunctionByClassName();
 }
 
 function addTaskToTodoList() {
@@ -90,7 +94,7 @@ function addTaskToTodoList() {
     responsible: document.getElementById("taskResponsibleInput").value,
     description: document.getElementById("taskDescriptionInput").value,
   });
-  console.log("finished")
+  console.log("finished");
   writeTodoList();
 
   document.getElementById("taskToAdd").value = "";
@@ -114,9 +118,10 @@ function showModal(editing, taskNumber) {
     fillTaskInputOrContainer(true, taskNumber);
     setModalInputsVisible(false);
   } else {
-    modalFooter.style.display = "default";
+    console.log("why");
+    modalFooter.style.display = "flex";
     setModalInputsVisible(true);
-    
+
     if (taskNumber != null) {
       fillTaskInputOrContainer(false, taskNumber);
     }
@@ -130,32 +135,35 @@ function closeModal() {
   clearModalInputs();
 }
 
-function setModalInputsVisible(trueOrFalse){
-  let modalInputs = document.getElementsByClassName("modalInput")
+function setModalInputsVisible(trueOrFalse) {
+  let modalInputs = document.getElementsByClassName("modalInput");
+  let modalOutputs = document.getElementsByClassName("modalOutput");
   for (let index = 0; index < modalInputs.length; index++) {
-    if (trueOrFalse){
-      modalInputs[index].style.display = "default"
-    }else{
-      modalInputs[index].style.display = "none"
+    if (trueOrFalse) {
+      modalInputs[index].style.display = "flex";
+      modalOutputs[index].style.display = "none";
+    } else {
+      modalInputs[index].style.display = "none";
+      modalOutputs[index].style.display = "flex";
     }
   }
 }
 
-function clearModalInputs(){
-  let modalInputs = document.getElementsByClassName("modalInput")
+function clearModalInputs() {
+  let modalInputs = document.getElementsByClassName("modalInput");
   for (let index = 0; index < modalInputs.length; index++) {
-      modalInputs[index].value = ""
+    modalInputs[index].value = "";
   }
 }
 
 function fillTaskInputOrContainer(isContainer, taskNumber) {
   switch (isContainer) {
     case true:
-      document.getElementById("taskNameContainer").innerHTML =
+      document.getElementById("taskNameOutput").innerHTML =
         todoList.tasks[taskNumber].name;
-      document.getElementById("taskResponsibleContainer").innerHTML =
+      document.getElementById("taskResponsibleOutput").innerHTML =
         todoList.tasks[taskNumber].responsible;
-      document.getElementById("taskDescriptionContainer").innerHTML =
+      document.getElementById("taskDescriptionOutput").innerHTML =
         todoList.tasks[taskNumber].description;
       break;
     default:

@@ -16,15 +16,15 @@ ul{
     align-items: center;
     height: 2em;
 }
-.edit:hover, .delete:hover{
-    background-color: lightgray;
-    border-radius: 4px;
-}
 .delete{
     background-image: url("delete.png");
 }
 .edit{
     background-image: url("edit.png");
+}
+.actionTodoListField:hover, .edit:hover, .delete:hover{
+    background-color: lightgray;
+    border-radius: 4px;
 }
 .edit, .delete{
     transition: 500ms;
@@ -36,6 +36,21 @@ ul{
     border: none;
     background-color: transparent;
 }
+.actionTodoListField{
+    transition: 500ms;
+    width: 50vw;
+    height: 1em;
+    padding: 0.25em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+
+
 .modalHeader{
     display: flex;
     justify-content: space-around;

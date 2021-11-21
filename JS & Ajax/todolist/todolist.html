@@ -17,12 +17,14 @@
           <div class="taskNameDiv">
             <h4 class="taskName">Task Name:</h4>
             <div id="taskNameContainer">
+              <div class="modalOutput" id="taskNameOutput"></div>
               <input name="taskName" id='taskNameInput' class='modalInput' required></input>
             </div>
           </div>
           <div class="taskResponcibleDiv">
             <h4 class="taskResponsible">Responcible:</h4>
             <div id="taskResponsibleContainer">
+              <div class="modalOutput" id="taskResponsibleOutput"></div>
               <input name="taskResponsible" id='taskResponsibleInput' class='modalInput' required></input>
             </div>
           </div>
@@ -30,11 +32,12 @@
         <div class="taskDescription">
           <h4>Description:</h4>
           <div id="taskDescriptionContainer">
+            <div class="modalOutput" id="taskDescriptionOutput"></div>
             <textarea id='taskDescriptionInput' class='modalInput' rows='15' maxlength='800' placeholder='Enter Text Here! (max. 800 Characters)'></textarea>
           </div>
         </div>
         <div class="modalFooter">
-          <input type="submit" id="saveTask" class="modalButton" formaction="">Save</input>
+          <input type="submit" id="saveTask" class="modalButton" formaction="" value="Save"></input>
           <button id="cancelTask" class="modalButton">Cancel</button>
         </div>
       </div>
