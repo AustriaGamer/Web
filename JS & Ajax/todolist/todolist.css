@@ -41,6 +41,7 @@ ul{
     width: 50vw;
     height: 1em;
     padding: 0.25em;
+    margin: 0.5vw 1vw;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
@@ -112,6 +113,7 @@ ul{
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 800px;
     height: auto;
+    box-shadow: #888 20px 20px 4px;
   }
   
   /* The Close Button */

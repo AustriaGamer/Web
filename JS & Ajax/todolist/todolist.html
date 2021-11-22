@@ -18,14 +18,14 @@
             <h4 class="taskName">Task Name:</h4>
             <div id="taskNameContainer">
               <div class="modalOutput" id="taskNameOutput"></div>
-              <input name="taskName" id='taskNameInput' class='modalInput' required></input>
+              <input name="taskName" id='taskNameInput' class='modalInput' maxlength="20" required></input>
             </div>
           </div>
           <div class="taskResponcibleDiv">
             <h4 class="taskResponsible">Responcible:</h4>
             <div id="taskResponsibleContainer">
               <div class="modalOutput" id="taskResponsibleOutput"></div>
-              <input name="taskResponsible" id='taskResponsibleInput' class='modalInput' required></input>
+              <input name="taskResponsible" id='taskResponsibleInput' class='modalInput' maxlength="20" required></input>
             </div>
           </div>
         </div>
@@ -46,7 +46,6 @@
     <div class="wrapper">
       <h1>TODO List</h1>
       <ul id="todo"></ul>
-      <input id="taskToAdd" type="text" placeholder="Task" />
       <button id="addTask">Add</button>
     </div>
   </body>

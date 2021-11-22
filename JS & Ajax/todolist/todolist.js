@@ -18,9 +18,6 @@ function addButtonFunctions() {
   document.getElementById("addTask").addEventListener("click", function () {
     showModal(true);
   });
-  document
-    .getElementById("taskToAdd")
-    .addEventListener("keypress", addEnterKeyFunction);
 
   //Modal
   document
@@ -55,7 +52,7 @@ function validateForm() {
   let x = document.getElementById("taskNameInput").value;
   let y = document.getElementById("taskResponsibleInput").value;
   let z = document.getElementById("taskDescriptionInput").value;
-  if (x == "" || y == "" || x.length >22 || y.length > 22) {
+  if (x == "" || y == "" || x.length >20 || y.length > 20) {
     return false;
   }else if(!z == "" && z.length > 800){
     return false;
@@ -96,8 +93,6 @@ function addTaskToTodoList() {
   });
   console.log("finished");
   writeTodoList();
-
-  document.getElementById("taskToAdd").value = "";
 }
 
 function editTask(indexTask) {
