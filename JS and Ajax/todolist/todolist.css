@@ -42,6 +42,17 @@ ul{
     height: 1em;
     padding: 0.25em;
     margin: 0.5vw 1vw;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.todoListTaskName {
+    width: 98%;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
@@ -50,19 +61,66 @@ ul{
     text-overflow: ellipsis;
 }
 
+.redtrue{
+    background-color: red;
+}
+.redfalse{
+    background-color: green;
+}
+.redtrue, .redfalse{
+    height: 0.4em;
+    width: 0.4em;
+    border: 2px black solid;
+    border-radius: 1em;
+}
+
+
 
 
 .modalHeader{
     display: flex;
     justify-content: space-around;
     position: relative;
+    margin: 4%;
 }
+.taskNameDiv, .taskResponsibleDiv{
+    display: block;
+    height: 100%;
+    width: 45%;
+    justify-content: center;
+}
+.taskLightContainer{
+   width: 3%;
+   max-height: 80%;
+   display: flex;
+   
+   justify-content: center;
+}
+#taskNameContainer, #taskResponsibleContainer{
+    text-align: center;
+    justify-content: space-around;
+}
+
+#taskNameInput, #taskResponsibleInput{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#taskLight{
+    margin: 0.3em;
+}
+#lightPositionCorrector{
+    display: none;
+    width: 5vw;
+}
+
 
 .modalFooter{
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
 }
+
 .taskDescription{
     text-align: left;
     margin: 4%;

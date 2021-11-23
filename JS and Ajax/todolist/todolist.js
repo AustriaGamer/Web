@@ -7,6 +7,8 @@ let todoList = {
   tasks: [
     {
       name: "Test1",
+      finished: false,
+      clickedLight : false,
       responsible: "User1",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare risus sem, non elementum purus imperdiet et. Ut dictum leo vel dignissim molestie. Maecenas nec pulvinar est. Nam tempor tristique scelerisque. Morbi posuere tincidunt sapien, tincidunt ullamcorper neque elementum et. Donec aliquam molestie nisl, elementum mattis magna pharetra a. Morbi vehicula risus in ligula vehicula imperdiet. Vivamus rutrum ipsum ac tincidunt rhoncus. Duis at tristique ligula. Integer orci lectus, rhoncus vitae augue nec, ultrices mollis odio. Quisque tempor ex augue, id sollicitudin est elementum eget. Nulla tempor ex lorem, nec feugiat ipsum aliquet at Aenean in lacus sit amet nunc commodo finibus ac at libero. Vivamus eu metus ut felis euismod pretium. Proin mattis scelerisque rhoncus. Vestibulum venenatis, eros vel consequat suscipit, lectus nisl hendrerit tortor, accumsan pulvinar felis ante a velit. Duis sit amet eros diam. Vestibulum ligula ex, efficitur ut volutpat a, tincidunt ut metus. Mauris tincidunt justo mollis lobortis posuere. In condimentum mi tellus, vitae sollicitudin nibh auctor a. Nulla in metus ipsum. Ut eu sapien lectus. Proin porta efficitur nisl, eu congue felis. Quisque ut pretium tortor. Proin sed congue mi. Morbi et urna posuere, mollis dui ut, semper magna. Ut lacus erat, tincidunt non risus ut, lacinia gravida mauris",
@@ -39,8 +41,18 @@ function addButtonFunctionByClassName() {
     taskElements[0].onclick = function () {
       editTask(i);
     };
+
+    taskElements[1].children[0].onclick = function () {
+      changeTrueOrFalse(i);
+      console.log("kd")
+      todoList.tasks[i].clickedLight = true;
+    };
     taskElements[1].onclick = function () {
-      showModal(false, i);
+      if (!todoList.tasks[i].clickedLight) {
+        showModal(false, i);
+      } else {
+        todoList.tasks[i].clickedLight = false;
+      }
     };
     taskElements[2].onclick = function () {
       deleteTask(i);
@@ -48,21 +60,29 @@ function addButtonFunctionByClassName() {
   }
 }
 
+function changeTrueOrFalse(indexTask) {
+  if (todoList.tasks[indexTask].finished) {
+    document.getElementById("todoListTaskLight"+indexTask).className = "redtrue"
+    todoList.tasks[indexTask].finished = false;
+  } else {
+    todoList.tasks[indexTask].finished = true;
+    document.getElementById("todoListTaskLight"+indexTask).className = "redfalse"
+  }
+}
+
 function validateForm() {
   let x = document.getElementById("taskNameInput").value;
   let y = document.getElementById("taskResponsibleInput").value;
   let z = document.getElementById("taskDescriptionInput").value;
-  if (x == "" || y == "" || x.length >20 || y.length > 20) {
+  if (x == "" || y == "" || x.length > 20 || y.length > 20) {
     return false;
-  }else if(!z == "" && z.length > 800){
+  } else if (!z == "" && z.length > 800) {
     return false;
-    
   }
 
-    addTaskToTodoList();
-    closeModal();
-    return true;
-  
+  addTaskToTodoList();
+  closeModal();
+  return true;
 }
 
 function addEnterKeyFunction(e) {
@@ -77,8 +97,14 @@ function writeTodoList() {
     htmlOutput +=
       "<div class='task' id='task" +
       i +
-      "'> <button class='edit' ></button><div class='todoListTaskName actionTodoListField'>" +
+      "'> <button class='edit' ></button>" +
+      "<div class='actionTodoListField'>" +
+      "<div id='todoListTaskLight" +
+      i +
+      "' class='red"+todoList.tasks[i].finished+"'></div>" +
+      "<div class='todoListTaskName'>" +
       todoList.tasks[i].name +
+      "</div>" +
       "</div><button class='delete' ></button></div>";
   }
   todoList.body.innerHTML = htmlOutput;
@@ -88,6 +114,8 @@ function writeTodoList() {
 function addTaskToTodoList() {
   todoList.tasks.push({
     name: document.getElementById("taskNameInput").value,
+    finished: true,
+    clickedLight: false,
     responsible: document.getElementById("taskResponsibleInput").value,
     description: document.getElementById("taskDescriptionInput").value,
   });
@@ -152,6 +180,7 @@ function clearModalInputs() {
 }
 
 function fillTaskInputOrContainer(isContainer, taskNumber) {
+  document.getElementById("taskLight").className = "red"+todoList.tasks[taskNumber].finished;
   switch (isContainer) {
     case true:
       document.getElementById("taskNameOutput").innerHTML =
