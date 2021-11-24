@@ -3,7 +3,19 @@ body{
     word-wrap: break-word;
     min-width: 400px;
 }
-
+.mainButton{
+    vertical-align: middle;
+    transition: 750ms;
+    background-color: white;
+    border: black 2px solid;
+    border-radius: 2em;
+    width: 15%;
+    margin:0px 5% ;
+}
+.mainButton:hover{
+    background-color: black;
+    color: white;
+}
 ul{
     padding-inline-start: 0px;
     list-style: none;
@@ -23,11 +35,13 @@ ul{
     background-image: url("edit.png");
 }
 .actionTodoListField:hover, .edit:hover, .delete:hover{
-    background-color: lightgray;
-    border-radius: 4px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    border: 0px;
 }
 .edit, .delete{
-    transition: 500ms;
+    transition: 750ms;
     height: 2em;
     width: 2em;
     background-size: 50%;
@@ -37,7 +51,7 @@ ul{
     background-color: transparent;
 }
 .actionTodoListField{
-    transition: 500ms;
+    transition: 750ms;
     width: 50vw;
     height: 1em;
     padding: 0.25em;

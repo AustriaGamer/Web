@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="todolist.js" defer></script>
+    <script src="rest.js" defer></script>
+    <link rel="stylesheet" href="todolist.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <div id="openTaskModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modalHeader">
+          <div class="taskLightContainer">
+            <h4>
+          <div id="taskLight" class="redtrue"></div>
+          </h4>
+          </div>
+          <div class="taskNameDiv">
+            <h4 class="taskName">Task Name:</h4>
+            <div id="taskNameContainer">
+              <div class="modalOutput" id="taskNameOutput"></div>
+              <input name="taskName" id='taskNameInput' class='modalInput' maxlength="20" required></input>
+            </div>
+          </div>
+          <div class="taskResponsibleDiv">
+            <h4 class="taskResponsible">Responsible:</h4>
+            <div id="taskResponsibleContainer">
+              <div class="modalOutput" id="taskResponsibleOutput"></div>
+              <input name="taskResponsible" id='taskResponsibleInput' class='modalInput' maxlength="20" required></input>
+            </div>
+          </div>
+        </div>
+        <div class="taskDescription">
+          <h4>Description:</h4>
+          <div id="taskDescriptionContainer">
+            <div class="modalOutput" id="taskDescriptionOutput"></div>
+            <textarea id='taskDescriptionInput' class='modalInput' rows='15' maxlength='800' placeholder='Enter Text Here! (max. 800 Characters)'></textarea>
+          </div>
+        </div>
+        <div class="modalFooter">
+          <input type="submit" id="saveTask" class="modalButton" formaction="" value="Save"></input>
+          <button id="cancelTask" class="modalButton">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  <div class="red"></div>
+  
+</select>
+    <div class="wrapper">
+      <h1>TODO List</h1>
+      <ul id="todo"></ul>
+      <button id="addTask" class="mainButton">Add</button>
+      <button id="loadTask" class="mainButton">Load</button>
+    </div>
+  </body>
+</html>
