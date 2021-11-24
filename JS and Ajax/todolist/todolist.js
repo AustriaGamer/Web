@@ -7,8 +7,8 @@ let todoList = {
   tasks: [
     {
       name: "Test1",
-      finished: false,
-      clickedLight : false,
+      finished: true,
+      clickedLight: false,
       responsible: "User1",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare risus sem, non elementum purus imperdiet et. Ut dictum leo vel dignissim molestie. Maecenas nec pulvinar est. Nam tempor tristique scelerisque. Morbi posuere tincidunt sapien, tincidunt ullamcorper neque elementum et. Donec aliquam molestie nisl, elementum mattis magna pharetra a. Morbi vehicula risus in ligula vehicula imperdiet. Vivamus rutrum ipsum ac tincidunt rhoncus. Duis at tristique ligula. Integer orci lectus, rhoncus vitae augue nec, ultrices mollis odio. Quisque tempor ex augue, id sollicitudin est elementum eget. Nulla tempor ex lorem, nec feugiat ipsum aliquet at Aenean in lacus sit amet nunc commodo finibus ac at libero. Vivamus eu metus ut felis euismod pretium. Proin mattis scelerisque rhoncus. Vestibulum venenatis, eros vel consequat suscipit, lectus nisl hendrerit tortor, accumsan pulvinar felis ante a velit. Duis sit amet eros diam. Vestibulum ligula ex, efficitur ut volutpat a, tincidunt ut metus. Mauris tincidunt justo mollis lobortis posuere. In condimentum mi tellus, vitae sollicitudin nibh auctor a. Nulla in metus ipsum. Ut eu sapien lectus. Proin porta efficitur nisl, eu congue felis. Quisque ut pretium tortor. Proin sed congue mi. Morbi et urna posuere, mollis dui ut, semper magna. Ut lacus erat, tincidunt non risus ut, lacinia gravida mauris",
@@ -32,6 +32,9 @@ function addButtonFunctions() {
   };
   document.getElementById("cancelTask").addEventListener("click", closeModal);
   document.getElementById("saveTask").addEventListener("click", validateForm);
+  document
+    .getElementById("taskLight")
+    .addEventListener("click", changeTrueOrFalse, false);
 }
 
 function addButtonFunctionByClassName() {
@@ -43,9 +46,8 @@ function addButtonFunctionByClassName() {
     };
 
     taskElements[1].children[0].onclick = function () {
-      changeTrueOrFalse(i);
-      console.log("kd")
       todoList.tasks[i].clickedLight = true;
+      changeTrueOrFalse(i);
     };
     taskElements[1].onclick = function () {
       if (!todoList.tasks[i].clickedLight) {
@@ -61,12 +63,24 @@ function addButtonFunctionByClassName() {
 }
 
 function changeTrueOrFalse(indexTask) {
-  if (todoList.tasks[indexTask].finished) {
-    document.getElementById("todoListTaskLight"+indexTask).className = "redtrue"
-    todoList.tasks[indexTask].finished = false;
+  if (indexTask.type == "click") {
+    if (document.getElementsByClassName("modalFooter")[0].style.display != "none") {
+      if (document.getElementById("taskLight").className == "finishedtrue") {
+        document.getElementById("taskLight").className = "finishedfalse";
+      } else {
+        document.getElementById("taskLight").className = "finishedtrue";
+      }
+    }
   } else {
-    todoList.tasks[indexTask].finished = true;
-    document.getElementById("todoListTaskLight"+indexTask).className = "redfalse"
+    if (todoList.tasks[indexTask].finished) {
+      document.getElementById("todoListTaskLight" + indexTask).className =
+        "finishedfalse";
+      todoList.tasks[indexTask].finished = false;
+    } else {
+      todoList.tasks[indexTask].finished = true;
+      document.getElementById("todoListTaskLight" + indexTask).className =
+        "finishedtrue";
+    }
   }
 }
 
@@ -101,7 +115,9 @@ function writeTodoList() {
       "<div class='actionTodoListField'>" +
       "<div id='todoListTaskLight" +
       i +
-      "' class='red"+todoList.tasks[i].finished+"'></div>" +
+      "' class='finished" +
+      todoList.tasks[i].finished +
+      "'></div>" +
       "<div class='todoListTaskName'>" +
       todoList.tasks[i].name +
       "</div>" +
@@ -112,9 +128,13 @@ function writeTodoList() {
 }
 
 function addTaskToTodoList() {
+  let finished = false;
+  if (document.getElementById("taskLight").className == "finishedtrue") {
+    finished = true;
+  }
   todoList.tasks.push({
     name: document.getElementById("taskNameInput").value,
-    finished: true,
+    finished: finished,
     clickedLight: false,
     responsible: document.getElementById("taskResponsibleInput").value,
     description: document.getElementById("taskDescriptionInput").value,
@@ -141,10 +161,9 @@ function showModal(editing, taskNumber) {
     fillTaskInputOrContainer(true, taskNumber);
     setModalInputsVisible(false);
   } else {
-    console.log("why");
     modalFooter.style.display = "flex";
     setModalInputsVisible(true);
-
+    document.getElementById("taskLight").className = "finishedfalse";
     if (taskNumber != null) {
       fillTaskInputOrContainer(false, taskNumber);
     }
@@ -180,7 +199,8 @@ function clearModalInputs() {
 }
 
 function fillTaskInputOrContainer(isContainer, taskNumber) {
-  document.getElementById("taskLight").className = "red"+todoList.tasks[taskNumber].finished;
+  document.getElementById("taskLight").className =
+    "finished" + todoList.tasks[taskNumber].finished;
   switch (isContainer) {
     case true:
       document.getElementById("taskNameOutput").innerHTML =

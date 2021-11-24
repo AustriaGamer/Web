@@ -61,13 +61,13 @@ ul{
     text-overflow: ellipsis;
 }
 
-.redtrue{
-    background-color: red;
-}
-.redfalse{
+.finishedtrue{
     background-color: green;
 }
-.redtrue, .redfalse{
+.finishedfalse{
+    background-color: red;
+}
+.finishedtrue, .finishedfalse{
     height: 0.4em;
     width: 0.4em;
     border: 2px black solid;
