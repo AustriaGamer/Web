@@ -1,0 +1,59 @@
+:root {
+  --contrastBright: #ffffff;
+  --contrastDark: #00171f;
+
+  --primaryColor: #00a8e8;
+  --middleColor: #007ea7;
+  --secondaryColor: #003459;
+}
+
+.wrapper {
+  max-width: 1000px;
+  padding: 5px;
+  margin: 0px auto;
+  background-color: var(--middleColor);
+}
+
+.banner {
+  background-image: url("img/footballBanner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 18vh;
+  border: var(--contrastDark) 2px solid;
+  display: relative;
+  font: 220% bold;
+}
+.title {
+  margin: 0;
+  position: relative;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.title > h1 {
+  text-align: right;
+  padding-right: 10vw;
+  vertical-align: middle;
+}
+
+.tobbar {
+  display: flex;
+}
+
+.tobbar > button {
+  width: 25%;
+  height: 8%;
+  color: var(--primaryColor);
+  background-color: var(--secondaryColor);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+body {
+  background-color: var(--contrastBright);
+  
+}
