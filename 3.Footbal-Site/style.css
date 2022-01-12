@@ -7,6 +7,10 @@
   --secondaryColor: #003459;
 }
 
+h1{
+  font-weight: bolder;
+}
+
 .wrapper {
   max-width: 1000px;
   padding: 5px;
@@ -51,6 +55,34 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
+}
+
+.mainbody{
+  display: flex;
+}
+
+.content{
+  max-width: 75%;
+  padding: 2%;
+}
+
+.liveGames{
+  min-width: 25%;
+  border: black solid 2px;
+  border-top: none;
+  margin-right: 0%;
+}
+
+.tableHeader{
+  text-transform: uppercase;
+  text-align: center;
+  margin: 1%;
+  font-weight: bolder;
+}
+
+.horizontalline{
+  border-top: black solid 2px;
+  min-width: 100%;
 }
 
 body {
