@@ -1,0 +1,32 @@
+.container{
+    background-color: chartreuse;
+    display: flex;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+}
+.left, .right{
+    position: relative;
+    display: block;
+    width: 50%;
+    padding: 5%;
+    text-align: center;
+}
+#calculate{
+    position:absolute;
+    bottom: 10%;    
+    left: 15%;
+    width: 70%;
+}
+
+input{
+    margin-bottom: 2%;
+    width:80%;
+}
+textarea{
+    width: 80%;
+    height: 95%;
+    resize: none;
+}
