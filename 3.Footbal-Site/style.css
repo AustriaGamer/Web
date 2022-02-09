@@ -3,7 +3,7 @@
   --contrastDark: #00171f;
 
   --primaryColor: #00a8e8;
-  --middleColor: #007ea7;
+  --middleColor: #178AAF;
   --secondaryColor: #003459;
 }
 
@@ -47,7 +47,11 @@ h1{
   display: flex;
 }
 
-.tobbar > button {
+.tobbar > a {
+  border-left: solid 2px var(--primaryColor);
+  border-top: solid 2px var(--primaryColor);
+  border-bottom: solid 2px var(--primaryColor);
+
   width: 25%;
   height: 8%;
   color: var(--primaryColor);
@@ -55,6 +59,16 @@ h1{
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
+  text-align: center;
+  text-decoration: none;
+}
+
+#futuregames{
+  border-right: solid black 2px;
+}
+
+#results{
+  border-left: solid black 2px;
 }
 
 .mainbody{
@@ -83,6 +97,42 @@ h1{
 .horizontalline{
   border-top: black solid 2px;
   min-width: 100%;
+}
+
+.teamsContent{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  white-space:pre-wrap;
+  overflow:initial;
+  justify-content: space-around;
+}
+
+.teams{
+  padding: 2vh 4vw;
+}
+
+.teams ,.teamsCrest ,.teamsName{
+  text-align: center;
+}
+
+.teamsName p{
+  max-width: 120px;
+  white-space:normal;
+  overflow:visible;
+}
+
+.teamsCrest{
+  min-width: 30px;
+  max-width: 120px;
+  min-height: 30px;
+  max-height: 120px;
+  width: 15vw
+}
+.teamsCrest img{
+  max-width: 100%;
+  max-height: 120px;
+  
 }
 
 body {
