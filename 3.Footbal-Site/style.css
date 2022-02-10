@@ -100,7 +100,7 @@ h1{
 }
 
 .teamsContent{
-  display: flex;
+  display:flex;
   width: 100%;
   flex-wrap: wrap;
   white-space:pre-wrap;
@@ -109,6 +109,7 @@ h1{
 }
 
 .teams{
+  position: relative;
   padding: 2vh 4vw;
 }
 

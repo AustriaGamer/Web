@@ -19,7 +19,7 @@ function loadFromServer(url, store) {
         case "teams":
           info.teams = data;
           console.log(info.teams);
-          createTeamOverview()
+          createTeamOverview();
           break;
       }
     })
@@ -60,4 +60,4 @@ function start() {
 
   console.log(info.teams);
 }
-start()
+start();
