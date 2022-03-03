@@ -1,17 +1,19 @@
 import { Component } from "react";
+import styles from "./SuperButton.module.css"
 
-export default class SuperButton extends Component{
-    render (){
-        return <div>
-         
-          <a class="btn-epic" href='https://www.epicurrence.com/'>Epic Button failed attempt</a>
-            
-  <div>
-    <span> Get Ticket</span>
-    <span> Get Ticket</span>
-    </div>
- 
-
-        </div>
-    }
+export default class SuperButton extends Component {
+  render() {
+    return (
+      <div className={styles.container}>
+        <a  href="https://codepen.io/avstorm/pen/MBmvJQ" target="_blank">
+          <div className={styles.btnepic}>
+          <div>
+            <span>By Andreas Storm</span>
+            <span>Epic Button</span>
+          </div>
+          </div>
+        </a>
+      </div>
+    );
+  }
 }
