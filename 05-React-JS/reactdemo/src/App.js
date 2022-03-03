@@ -10,7 +10,7 @@ function App() {
           Hello
           <SuperButton></SuperButton>
           <TextBlock text='Coffee'>Hey</TextBlock>
-          <MyList children={['Tea'],['Beer'],['Tea']} title="My List"></MyList>
+          <MyList color="red" children={['Tea','Beer','Tea']} title="My List"></MyList>
     </div>
   );
 }

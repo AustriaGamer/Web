@@ -1,7 +1,7 @@
 import { Component } from "react";
 import styles from "./TextBlock.module.css";
 
-export default class SuperButton extends Component {
+export default class TextBlock extends Component {
   constructor(props) {
     super(props);
   }
