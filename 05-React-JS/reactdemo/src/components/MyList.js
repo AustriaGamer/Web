@@ -1,5 +1,4 @@
 import { Component } from "react";
-import parse, { attributesToProps } from "html-react-parser";
 import styles from "./MyList.module.css";
 import TextBlock from "./TextBlock.js";
 
@@ -19,5 +18,8 @@ export default function MyList(props) {
 }
 
 function addKeys(item, index,arr){
-  return <TextBlock key={index} text={item} />
+  if(index%2==0){
+    return <TextBlock key={index} text={item} direction="right"/>
+  }
+  return <TextBlock key={index} text={item} direction="left"/>
 }

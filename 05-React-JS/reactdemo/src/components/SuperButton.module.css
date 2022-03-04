@@ -3,6 +3,12 @@
   max-width: 250px;
   margin: 5px auto;
 }
+body {
+  background: #1e0f21;
+  display: grid;
+  font-family: monospace;
+  color: white;
+}
 
 .btnepic {
   position: relative;
