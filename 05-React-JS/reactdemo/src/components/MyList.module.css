@@ -1,3 +1,55 @@
+:root{
+    --duration: 400ms;
+    --body-background: #1e0f21;
+}
+
+
 .title{
-    color: red;
+    position: relative;
+    color: white;
+    font-size: 2rem;
+    z-index: 3;
+    background-color: var(--body-background);
+}
+.title::before{
+    position: absolute;
+    z-index: -1;
+    content: '';
+    left: -1px;
+    width: 252px;
+    height: 20px;
+    /*
+    background-color: aqua;
+    */
+}
+.title::before:hover{
+    transform:translateY(200%);
+}
+
+.mlcontainer{
+    background-color: var(--body-background);
+    position: relative;
+    z-index: 2;
+    width: 250px;
+    margin: 0px auto;
+}
+.elements{
+    position: relative;
+    padding: 0px;
+    list-style: none;  
+}
+
+.elementr, .elementl{
+    margin: 5px 25px;
+}
+.elementr:hover{
+    padding-left: 25px;
+    width: 200px;
+    transition-duration: var(--duration);
+}
+.elementl:hover{
+    padding-right: 25px;
+    margin: 5px 0px;
+    width: 200px;
+    transition-duration: var(--duration);
 }
