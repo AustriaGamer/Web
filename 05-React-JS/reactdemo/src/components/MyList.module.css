@@ -1,55 +1,100 @@
-:root{
-    --duration: 400ms;
-    --body-background: #1e0f21;
+:root {
+  --duration: 400ms;
+  --body-background: #1e0f21;
+  --background-blue: #3ad2d0;
 }
 
-
-.title{
-    position: relative;
-    color: white;
-    font-size: 2rem;
-    z-index: 3;
-    background-color: var(--body-background);
+.title {
+  position: relative;
+  color: white;
+  font-size: 2rem;
+  z-index: 3;
 }
-.title::before{
-    position: absolute;
+.mlcontainer {
+  position: relative;
+  background-color: var(--body-background);
+  width: 250px;
+  margin: 0px auto;
+  padding-bottom: 0.1px;
+  border-radius: 6px;
+}
+.mlcontainer::before {
+  border-radius: 6px;
+  z-index: -1;
+  content: "";
+}
+/* The animation code */
+@keyframes example {
+  0% {
+    background-color: var(--background-blue);
     z-index: -1;
-    content: '';
-    left: -1px;
-    width: 252px;
+    content: "";
+    left: 50%;
+    top: -2px;
+    width: 0px;
     height: 20px;
-    /*
-    background-color: aqua;
-    */
-}
-.title::before:hover{
-    transform:translateY(200%);
+  }
+  10% {
+    top: -2px;
+    left: -2px;
+    width: 254px;
+    height: 20px;
+  }
+  15% {
+    top: -2px;
+    left: -2px;
+    width: 254px;
+    height: 20px;
+  }
+  50% {
+    top: 30%;
+    height: 40%;
+  }
+  85% {
+    top: calc(100% - 18px);
+    left: -2px;
+    width: 254px;
+    height: 20px;
+  }
+  90% {
+    top: calc(100% - 18px);
+    left: -2px;
+    width: 254px;
+    height: 20px;
+  }
+  100% {
+    top: calc(100% - 18px);
+    left: 50%;
+    width: 0px;
+    
+  }
 }
 
-.mlcontainer{
-    background-color: var(--body-background);
-    position: relative;
-    z-index: 2;
-    width: 250px;
-    margin: 0px auto;
+.mlcontainer:hover::before {
+  position: absolute;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  background-color: var(--background-blue);
 }
-.elements{
-    position: relative;
-    padding: 0px;
-    list-style: none;  
+.elements {
+  z-index: 3;
+  position: relative;
+  padding: 0px;
+  list-style: none;
 }
 
-.elementr, .elementl{
-    margin: 5px 25px;
+.elementr,
+.elementl {
+  z-index: 3;
+  margin: 5px 25px;
+  transition: all var(--duration) ease-out;
 }
-.elementr:hover{
-    padding-left: 25px;
-    width: 200px;
-    transition-duration: var(--duration);
+.elementr:hover {
+  margin-right: 0px;
+  margin-left: 50px;
 }
-.elementl:hover{
-    padding-right: 25px;
-    margin: 5px 0px;
-    width: 200px;
-    transition-duration: var(--duration);
+.elementl:hover {
+  margin-right: 50px;
+  margin-left: 0px;
 }
