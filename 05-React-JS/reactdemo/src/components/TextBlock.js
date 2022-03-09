@@ -6,7 +6,7 @@ export default class TextBlock extends Component {
     super(props);
   }
   render() {
-    if(this.props.direction == "right"){console.log("right")
+    if(this.props.direction == "right"){
       return (
         <div className={styles.container}>
           <div className={styles.blockRight+" "+ styles.block}>
@@ -18,7 +18,6 @@ export default class TextBlock extends Component {
         </div>
       );
     }
-    console.log("left")
     return (
       <div className={styles.container}>
         <div className={styles.blockLeft +" "+ styles.block}>

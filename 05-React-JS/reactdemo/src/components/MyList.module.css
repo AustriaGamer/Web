@@ -14,7 +14,7 @@
   position: relative;
   background-color: var(--body-background);
   width: 250px;
-  margin: 0px auto;
+  margin: 4px auto;
   padding-bottom: 0.1px;
   border-radius: 6px;
 }
