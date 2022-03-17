@@ -7,11 +7,13 @@ export default function TLlist(props) {
 function addTask(item, index, arr) {
   console.log("Test: " + item);
   return (
-    <div key={index} className={styles.eContainer}>
+    <li key={index} className={styles.eContainer}>
       <div className={styles.eTitle}>
+        <a>
         {item.title}
+        </a>
         <div className={styles.eContent}>{item.content}</div>
       </div>
-    </div>
+    </li>
   );
 }
