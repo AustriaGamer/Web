@@ -1,0 +1,32 @@
+.taskAdder{
+    position: relative;
+    display: flex;
+    width: 60%; 
+    margin: 0px auto;
+    
+}
+.addContent{
+    width: 80%;
+    position: relative;
+}
+
+.texta, .texti{
+    width:94%;
+    margin: 1% auto;
+   
+}
+.texti{
+    margin-bottom: 0px;
+    
+}
+.texta{
+    resize: none;
+    height: auto;
+    
+}
+.addTask{
+    margin:1%;
+    width: 16%;
+    height:auto;
+    
+}

@@ -1,4 +1,3 @@
-import { Component } from "react";
 import styles from "./TLlist.module.css";
 
 export default function TLlist(props) {

@@ -12,7 +12,9 @@
     overflow: hidden;
     transition: .5s;
 }
-.eContainer:hover{
+.eContainer:focus-within, .eTitle:focus > .eContainer{
+    padding: 4px;
+    background-color: brown;
     height: fit-content;
     overflow:auto;
 }
