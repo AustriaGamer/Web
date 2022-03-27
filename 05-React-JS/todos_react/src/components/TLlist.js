@@ -9,10 +9,10 @@ function addTask(item, index, arr) {
   return (
     <li key={index} className={styles.eContainer}>
       <div className={styles.eTitle}>
-        <a>
-        {item.title}
-        </a>
-        <div className={styles.eContent}>{item.content}</div>
+        <details className={styles.details}>
+          <summary>{item.title}</summary>
+          <div className={styles.eContent}>{item.content}</div>
+        </details>
       </div>
     </li>
   );
