@@ -4,20 +4,21 @@
 .eContent{
     display: none;
     min-width: 20px;
-    min-height: 20px;
+    min-height: fit-content;
     background-color: coral;
     list-style: none;
 }
 .eContainer{
-    width: 70%;
     height: fit-content;
     overflow: hidden;
     transition: .5s;
-    margin: 0px auto;
+    list-style: none;
+    margin: 4px;
 }
-.eContainer:focus-within{
-    padding: 4px;
-    background-color: brown;
-    height: fit-content;
-    overflow:auto;
+.details{
+    
+}
+.details summary{
+    list-style: none;
+    cursor: pointer;
 }
