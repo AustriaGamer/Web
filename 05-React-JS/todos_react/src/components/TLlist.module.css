@@ -1,8 +1,10 @@
+ul{
+    padding: 0px;
+}
 .eTitle{
     background-color: aqua;
 }
 .eContent{
-    display: none;
     min-width: 20px;
     min-height: fit-content;
     background-color: coral;
@@ -13,7 +15,8 @@
     overflow: hidden;
     transition: .5s;
     list-style: none;
-    margin: 4px;
+    width: 60%; 
+    margin: 4px auto;
 }
 .details{
     

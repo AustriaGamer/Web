@@ -1,3 +1,7 @@
+:root{
+    --margin: calc(1% /20*80)
+}
+
 .taskAdder{
     position: relative;
     display: flex;
@@ -8,25 +12,35 @@
 .addContent{
     width: 80%;
     position: relative;
+    display: inline-block;
+    height: 100%;
+}
+.button{
+    width: 20%;
+    display: inline-block;
 }
 
+
 .texta, .texti{
-    width:94%;
+    border: 2px black solid;
+    width:95%;
     margin: 1% auto;
    
 }
 .texti{
-    margin-bottom: 0px;
-    
+    vertical-align: top;
+    margin-top: 0px;  
 }
 .texta{
+    vertical-align: bottom;
+    margin-bottom: 0px;
     resize: none;
-    height: auto;
+    height: calc(100% -16px);
     
 }
 .addTask{
     margin:1%;
-    width: 16%;
-    height:auto;
+    width: 98%;
+    height:98%;
     
 }
