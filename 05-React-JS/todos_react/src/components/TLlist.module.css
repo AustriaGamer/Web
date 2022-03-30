@@ -2,15 +2,18 @@
     background-color: aqua;
 }
 .eContent{
+    display: none;
     min-width: 20px;
     min-height: 20px;
     background-color: coral;
     list-style: none;
 }
 .eContainer{
-    height: 21px;
+    width: 70%;
+    height: fit-content;
     overflow: hidden;
     transition: .5s;
+    margin: 0px auto;
 }
 .eContainer:focus-within{
     padding: 4px;

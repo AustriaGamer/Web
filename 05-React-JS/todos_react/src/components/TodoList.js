@@ -6,9 +6,13 @@ import TLtaskAdder from "./TLtaskAdder";
 export default class TodoList extends Component {
   constructor(props){
     super(props);
-    this.state ={tasks:[{title:"test-title", content:"test-text"},{title:"test-title2", content:"test-text2"}]}
+    this.state ={tasks:[{title:"test-title", content:"test-text"},{title:"test-title2", content:"test-text2"}],
+    selected:null
   }
-  
+  }
+  shwoMore = (row) =>{
+    row.style.display = "visible";
+  }
   
   render(){
   return (
