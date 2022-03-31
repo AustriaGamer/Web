@@ -7,11 +7,21 @@ export default class TLtaskAdder extends Component {
     this.state = {
       inputTitle: "",
       inputText: "",
+      addedIDS: 0,
     };
   }
 
   addTask = () => {
-    this.props.statehandler({ title: "test-title", content: "test-text" })
+    if (this.state.inputTitle !== "") {
+      this.props.statehandler({
+        title: this.state.inputTitle,
+        content: this.state.inputText,
+        id: this.state.addedIDS,
+      });
+      this.setState({
+        addedIDS: this.state.addedIDS + 1,
+      });
+    }
   };
   updateAreaValue = (evt) => {
     this.setState({
