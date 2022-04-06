@@ -12,8 +12,7 @@ export default class TodoList extends Component {
     this.filterTask = this.filterTask.bind(this);
     this.state = {
       tasks: [],
-      reqID: 0,
-      
+      reqID: 0, 
     };
   }
   stateHandler(task) {
